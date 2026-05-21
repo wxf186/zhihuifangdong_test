@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """
 定时同步脚本：扫描项目结构与配置文件，将变更内容追加到 NOTES.md。
-配合 systemd timer 每天执行，定时对比上次记录发现变更并更新。
+同时读取当天 git commit 历史，作为工作内容追加到 create_log.py 的日志文件。
+配合 cron 每天 20:20 执行。
 """
+import subprocess
 import os
 import json
 import hashlib
@@ -21,11 +23,17 @@ WATCH_TARGETS = [
     "config/api_config.py",
     "config/report_generator.py",
     "config/token_manager.py",
+    "config/sync_notes.py",
     "zhihuifangdong_all.py",
     "zhihuifangdong_fy",
     "zhihuifangdong_sy",
+    "work_logs/create_log.py",
     "requirements.txt",
+    "NOTES.md",
 ]
+
+# 扫描时忽略的运行时产物
+IGNORE_PATTERNS = ["_results.json", "__pycache__", ".pyc", ".pytest_cache"]
 
 
 def get_file_hash(path: Path) -> str:
@@ -47,7 +55,8 @@ def scan_structure(root: Path) -> dict:
             if full_path.is_dir():
                 # 目录：列出所有文件（不含 __pycache__）
                 for f in full_path.rglob("*"):
-                    if "__pycache__" in f.parts or ".pytest_cache" in f.parts:
+                    if any(p in f.parts for p in ["__pycache__", ".pytest_cache"]) or \
+                       any(f.name.endswith(p) for p in [".pyc", "_results.json"]):
                         continue
                     rel = f.relative_to(root)
                     result[str(rel)] = get_file_hash(f)
@@ -111,12 +120,91 @@ def append_to_notes(changelog: str):
         f.write(changelog + "\n")
 
 
-def append_to_worklog(changelog: str):
-    """同时追加到当日工作日志"""
+def append_to_worklog(changes: list, timestamp: str):
+    """追加到当日工作日志（create_log.py 的文件）"""
     today = date.today().strftime("%Y-%m-%d")
     log_file = WORK_LOGS_DIR / f"{today}.md"
+
+    lines = []
+    # 文件变更（每个文件附加当天所有 commit message）
+    if changes:
+        lines.append("\n文件变更:")
+        for change in changes:
+            lines.append(describe_change(change))
+    else:
+        lines.append("\n文件变更:\n  无变更。")
+
+    # 今日工作（git commit）
+    commits = get_git_commits_today()
+    if commits:
+        lines.append("\n今日工作:")
+        for commit in commits:
+            lines.append(f"  - {commit}")
+    else:
+        lines.append("\n今日工作:\n  无 commit 记录（请确认今日工作已提交）")
+
+    content = "\n".join(lines) + "\n"
     with open(log_file, "a", encoding="utf-8") as f:
-        f.write(changelog + "\n")
+        f.write(content)
+
+
+def get_git_commits_today() -> list:
+    """读取当天所有 git commit（按时间倒序）"""
+    today = date.today().strftime("%Y-%m-%d")
+    try:
+        result = subprocess.run(
+            ["git", "log", "--since=" + today + " 00:00", "--until=" + today + " 23:59",
+             "--pretty=format:%h %s", "--reverse"],
+            cwd=PROJECT_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            return [line.strip() for line in result.stdout.strip().split("\n") if line.strip()]
+    except Exception as e:
+        print(f"[sync_notes] git log 读取失败: {e}")
+    return []
+
+
+def get_file_commits_today(file_path: str) -> list:
+    """读取指定文件当天的所有 commit message"""
+    today = date.today().strftime("%Y-%m-%d")
+    try:
+        result = subprocess.run(
+            ["git", "log", "--since=" + today + " 00:00", "--until=" + today + " 23:59",
+             "--pretty=format:%h %s", "--reverse", "--", file_path],
+            cwd=PROJECT_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            return [line.strip() for line in result.stdout.strip().split("\n") if line.strip()]
+    except Exception:
+        pass
+    return []
+
+
+def describe_change(change_line: str) -> str:
+    """
+    将变更行转为详细描述，附加当天 commit message。
+    change_line 格式如: "  ~ 修改: `base_tester.py`"
+    返回带 commit 详情的多行字符串。
+    """
+    # 解析出文件路径（去掉缩进和反引号）
+    parts = change_line.strip().split("`")
+    if len(parts) < 2:
+        return change_line
+    file_path = parts[1]
+
+    commits = get_file_commits_today(file_path)
+    if commits:
+        lines = [change_line]
+        for commit in commits:
+            lines.append(f"    → {commit}")
+        return "\n".join(lines)
+    else:
+        # 无 commit 说明（未提交或新增文件）
+        return change_line + "\n    → （未提交或无变更记录）"
 
 
 def main():
@@ -135,8 +223,8 @@ def main():
     # 始终追加到 NOTES.md（保持历史记录）
     append_to_notes(changelog)
 
-    # 同时追加到当日工作日志
-    append_to_worklog(changelog)
+    # 同时追加到当日工作日志（文件变更 + git commit）
+    append_to_worklog(changes, now)
 
     # 保存新快照
     save_snapshot(new_structure)
