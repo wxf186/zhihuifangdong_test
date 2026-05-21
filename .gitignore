@@ -1,0 +1,24 @@
+# 报告和临时文件
+reports/
+tokens/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# 环境变量和敏感信息
+.env
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# 计数器文件
+whole_add_name_counter.txt
+
+# 结构快照
+config/.structure_snapshot.json
