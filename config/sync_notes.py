@@ -184,11 +184,27 @@ def get_file_commits_today(file_path: str) -> list:
     return []
 
 
+def summarize_commits(commits: list) -> str:
+    """将多个 commit message 合并为一句变更说明"""
+    if not commits:
+        return "（当日无 commit 记录）"
+    if len(commits) == 1:
+        # 单条：去掉 hash，前缀加描述
+        msg = commits[0].split(" ", 1)[1] if " " in commits[0] else commits[0]
+        return msg
+    # 多条：用 ； 连接，第一条作主语，其余作补充
+    parts = []
+    for c in commits:
+        msg = c.split(" ", 1)[1] if " " in c else c
+        parts.append(msg)
+    return "；".join(parts)
+
+
 def describe_change(change_line: str) -> str:
     """
-    将变更行转为详细描述，附加当天 commit message。
+    将变更行转为详细描述，附加当天 commit message 总结。
     change_line 格式如: "  ~ 修改: `base_tester.py`"
-    返回带 commit 详情的多行字符串。
+    返回带变更说明的多行字符串。
     """
     # 解析出文件路径（去掉缩进和反引号）
     parts = change_line.strip().split("`")
@@ -197,14 +213,9 @@ def describe_change(change_line: str) -> str:
     file_path = parts[1]
 
     commits = get_file_commits_today(file_path)
-    if commits:
-        lines = [change_line]
-        for commit in commits:
-            lines.append(f"    → {commit}")
-        return "\n".join(lines)
-    else:
-        # 无 commit 说明（未提交或新增文件）
-        return change_line + "\n    → （未提交或无变更记录）"
+    summary = summarize_commits(commits)
+
+    return f"{change_line}\n    → {summary}"
 
 
 def main():
