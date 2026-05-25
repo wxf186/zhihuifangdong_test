@@ -1,0 +1,2699 @@
+[
+  {
+    "name": "test_02_accurate_search",
+    "api": "/core/app/houseManageExt/accurateSearch",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "POST",
+      "url": "http://8.153.90.53:7663/core/app/houseManageExt/accurateSearch",
+      "params": null,
+      "json_data": null,
+      "data": {
+        "rentType": "WHOLE",
+        "keyWord": "东"
+      }
+    },
+    "response": {
+      "_request_info": {
+        "method": "POST",
+        "url": "http://8.153.90.53:7663/core/app/houseManageExt/accurateSearch",
+        "params": null,
+        "json_data": null,
+        "data": {
+          "rentType": "WHOLE",
+          "keyWord": "东"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 376,
+      "success": true,
+      "message": "成功",
+      "data": {
+        "communityList": [
+          {
+            "communityId": 353613,
+            "communityName": "迎春小区(江汉东路)",
+            "districtName": "滨江区",
+            "labels": 0
+          },
+          {
+            "communityId": 285683,
+            "communityName": "大东方附近好房出租",
+            "districtName": "扎赉特旗",
+            "labels": 0
+          },
+          {
+            "communityId": 378713,
+            "communityName": "东莞市人民政府",
+            "districtName": "万江街道",
+            "labels": 0
+          }
+        ],
+        "houseList": [
+          {
+            "houseId": 557435,
+            "communityName": "合丰商务楼",
+            "districtName": "萧山区",
+            "houseName": "房东出血室",
+            "parentName": "1幢1单元"
+          },
+          {
+            "houseId": 557446,
+            "communityName": "合丰商务楼",
+            "districtName": "萧山区",
+            "houseName": "房东呀室",
+            "parentName": "1幢1单元"
+          }
+        ],
+        "userList": [
+          {
+            "renterId": 6,
+            "rentName": "柯震东",
+            "mobile": "18358136790",
+            "houseIds": [
+              1554986,
+              1555320
+            ]
+          },
+          {
+            "renterId": 26767,
+            "rentName": "智慧房东企业一",
+            "mobile": "13782341004",
+            "houseIds": [
+              1461807
+            ]
+          }
+        ],
+        "snList": [],
+        "remarkList": []
+      }
+    },
+    "time": "14:46:18",
+    "duration": 381,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_accurate_search.py"
+  },
+  {
+    "name": "test_03_cotenancy_list",
+    "api": "/core/cotenancyHouse/list",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "POST",
+      "url": "http://8.153.90.53:7663/core/cotenancyHouse/list",
+      "params": null,
+      "json_data": {
+        "current": 1,
+        "size": 12,
+        "orientations": [],
+        "roomNumbers": [],
+        "houseStatus": "WAITING_RENT",
+        "cityName": "杭州市",
+        "sort": false,
+        "usort": false,
+        "vacantDay": false
+      },
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "POST",
+        "url": "http://8.153.90.53:7663/core/cotenancyHouse/list",
+        "params": null,
+        "json_data": {
+          "current": 1,
+          "size": 12,
+          "orientations": [],
+          "roomNumbers": [],
+          "houseStatus": "WAITING_RENT",
+          "cityName": "杭州市",
+          "sort": false,
+          "usort": false,
+          "vacantDay": false
+        },
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 82,
+      "success": true,
+      "message": "成功",
+      "data": {
+        "total": 76,
+        "size": 12,
+        "pages": 7,
+        "current": 1,
+        "records": [
+          {
+            "communityId": 191322,
+            "communityName": "大庆里",
+            "cityName": "杭州市",
+            "simpleHouseList": [
+              {
+                "id": 1554936,
+                "name": "1幢1单元555室",
+                "current": 1,
+                "sonHouse": [
+                  {
+                    "id": 1554954,
+                    "name": "18",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 18.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  },
+                  {
+                    "id": 1554955,
+                    "name": "19",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 19.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  },
+                  {
+                    "id": 1554956,
+                    "name": "20",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 20.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  },
+                  {
+                    "id": 1554957,
+                    "name": "21",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 21.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  },
+                  {
+                    "id": 1554958,
+                    "name": "22",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 22.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  },
+                  {
+                    "id": 1554959,
+                    "name": "23",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 23.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  },
+                  {
+                    "id": 1554960,
+                    "name": "24",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 24.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  },
+                  {
+                    "id": 1554961,
+                    "name": "25",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 25.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  },
+                  {
+                    "id": 1554962,
+                    "name": "26",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 26.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  },
+                  {
+                    "id": 1554963,
+                    "name": "27",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 27.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  },
+                  {
+                    "id": 1554964,
+                    "name": "28",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 28.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  }
+                ]
+              },
+              {
+                "id": 1554988,
+                "name": "1幢1单元524",
+                "current": 1,
+                "sonHouse": [
+                  {
+                    "id": 1555007,
+                    "name": "18",
+                    "houseStatus": {
+                      "message": "未出租",
+                      "name": "WAITING_RENT"
+                    },
+                    "rent": 1.0,
+                    "rentType": "COTENANCY",
+                    "dayNumber": 738,
+                    "current": 1,
+                    "index": 0,
+                    "meter": false,
+                    "water": false,
+                    "door": false,
+                    "camera": false
+                  }
+                ]
+              }
+            ],
+            "houseNumTotal": 18,
+            "current": 1
+          }
+        ],
+        "extendData": {
+          "totalCount": 76
+        },
+        "meterUesdAnalyzeMap": {},
+        "meterUesdNumAnalyzeMap": {},
+        "meterUesdAnalyzeExportMap": {},
+        "meterUesdNumAnalyzeExportMap": {},
+        "meterTimeRangeMap": {}
+      }
+    },
+    "time": "14:46:18",
+    "duration": 85,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_cotenancy_list.py"
+  },
+  {
+    "name": "test_04_get_block",
+    "api": "/core/wholeHouse/getBlock",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "GET",
+      "url": "http://8.153.90.53:7663/core/wholeHouse/getBlock?type=COTENANCY",
+      "params": {
+        "type": "COTENANCY"
+      },
+      "json_data": null,
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "GET",
+        "url": "http://8.153.90.53:7663/core/wholeHouse/getBlock?type=COTENANCY",
+        "params": {
+          "type": "COTENANCY"
+        },
+        "json_data": null,
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 31,
+      "success": true,
+      "message": "成功",
+      "data": [
+        {
+          "cityName": "全部",
+          "list": [
+            {
+              "communityName": "一家山水",
+              "communityId": 194491,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "5幢",
+                  "dent": [
+                    {
+                      "united": "5单元",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "空",
+                  "dent": [
+                    {
+                      "united": "空",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "国际电力小区",
+              "communityId": 16811,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "小卫新村",
+              "communityId": 148767,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "新州花苑",
+              "communityId": 292543,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "东溪德必易园",
+              "communityId": 10102,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "二凉亭小区",
+              "communityId": 191893,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "空",
+                  "dent": [
+                    {
+                      "united": "空",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "一方大厦",
+              "communityId": 191504,
+              "housedent": [
+                {
+                  "blocked": "",
+                  "dent": [
+                    {
+                      "united": "",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "空",
+                  "dent": [
+                    {
+                      "united": "空",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "新苑公寓",
+              "communityId": 188788,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "大王家巷",
+              "communityId": 301633,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "小剪刀弄",
+              "communityId": 191922,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "大华西溪风情(公寓)",
+              "communityId": 190299,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "大莲塘长盛楼",
+              "communityId": 214547,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "缤纷小区",
+              "communityId": 194289,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "吉利大厦",
+              "communityId": 353859,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "14大街3号办公楼",
+              "communityId": 320285,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "空",
+                  "dent": [
+                    {
+                      "united": "空",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "中天·官河锦庭",
+              "communityId": 378773,
+              "housedent": [
+                {
+                  "blocked": "11幢",
+                  "dent": [
+                    {
+                      "united": "11单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "西溪风情花园",
+              "communityId": 188650,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "聚光中心",
+              "communityId": 353854,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        0
+                      ]
+                    },
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "北宫小区",
+              "communityId": 16898,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "大庆里",
+              "communityId": 191322,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "夕照社区",
+              "communityId": 378774,
+              "housedent": [
+                {
+                  "blocked": "9幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "united": "3单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "春波小区",
+              "communityId": 195314,
+              "housedent": [
+                {
+                  "blocked": "19幢",
+                  "dent": [
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "临城花苑",
+              "communityId": 192019,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cityName": "太原市",
+          "list": [
+            {
+              "communityName": "国际电力小区",
+              "communityId": 16811,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "北宫小区",
+              "communityId": 16898,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cityName": "北京市",
+          "list": [
+            {
+              "communityName": "大莲塘长盛楼",
+              "communityId": 214547,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cityName": "岳阳市",
+          "list": [
+            {
+              "communityName": "大王家巷",
+              "communityId": 301633,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cityName": "杭州市",
+          "list": [
+            {
+              "communityName": "一家山水",
+              "communityId": 194491,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "5幢",
+                  "dent": [
+                    {
+                      "united": "5单元",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "空",
+                  "dent": [
+                    {
+                      "united": "空",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "新州花苑",
+              "communityId": 292543,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "东溪德必易园",
+              "communityId": 10102,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "二凉亭小区",
+              "communityId": 191893,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "空",
+                  "dent": [
+                    {
+                      "united": "空",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "一方大厦",
+              "communityId": 191504,
+              "housedent": [
+                {
+                  "blocked": "",
+                  "dent": [
+                    {
+                      "united": "",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "空",
+                  "dent": [
+                    {
+                      "united": "空",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "新苑公寓",
+              "communityId": 188788,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "小剪刀弄",
+              "communityId": 191922,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "大华西溪风情(公寓)",
+              "communityId": 190299,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "缤纷小区",
+              "communityId": 194289,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "吉利大厦",
+              "communityId": 353859,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "14大街3号办公楼",
+              "communityId": 320285,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "空",
+                  "dent": [
+                    {
+                      "united": "空",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "中天·官河锦庭",
+              "communityId": 378773,
+              "housedent": [
+                {
+                  "blocked": "11幢",
+                  "dent": [
+                    {
+                      "united": "11单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "西溪风情花园",
+              "communityId": 188650,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "聚光中心",
+              "communityId": 353854,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        0
+                      ]
+                    },
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "大庆里",
+              "communityId": 191322,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "夕照社区",
+              "communityId": 378774,
+              "housedent": [
+                {
+                  "blocked": "9幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "united": "3单元",
+                      "floos": [
+                        1,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "春波小区",
+              "communityId": 195314,
+              "housedent": [
+                {
+                  "blocked": "19幢",
+                  "dent": [
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "communityName": "临城花苑",
+              "communityId": 192019,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "2单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cityName": "南京市",
+          "list": [
+            {
+              "communityName": "小卫新村",
+              "communityId": 148767,
+              "housedent": [
+                {
+                  "blocked": "1幢",
+                  "dent": [
+                    {
+                      "united": "1单元",
+                      "floos": [
+                        1
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "time": "14:46:18",
+    "duration": 35,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_get_block.py"
+  },
+  {
+    "name": "test_05_whole_add",
+    "api": "/core/houseAdd/wholeAdd",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "POST",
+      "url": "http://8.153.90.53:7663/core/houseAdd/wholeAdd",
+      "params": null,
+      "json_data": {
+        "provinceId": 19,
+        "cityId": 561,
+        "cityName": "杭州市",
+        "communityId": 378773,
+        "communityName": "中天·官河锦庭",
+        "kitchenNumber": 3,
+        "livingRoomNumber": 3,
+        "roomNumber": 3,
+        "toiletNumber": 3,
+        "commission": 50,
+        "pledgeCount": 1,
+        "perMonth": 1,
+        "payMethod": "MONTH_PAY",
+        "rent": "650.00",
+        "block": "10幢",
+        "unit": "10单元",
+        "name": "1104室",
+        "area": 145,
+        "newPvCost": true,
+        "houseTitle": "中天·官河锦庭10幢10单元1102室3室3卫-朝南"
+      },
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "POST",
+        "url": "http://8.153.90.53:7663/core/houseAdd/wholeAdd",
+        "params": null,
+        "json_data": {
+          "provinceId": 19,
+          "cityId": 561,
+          "cityName": "杭州市",
+          "communityId": 378773,
+          "communityName": "中天·官河锦庭",
+          "kitchenNumber": 3,
+          "livingRoomNumber": 3,
+          "roomNumber": 3,
+          "toiletNumber": 3,
+          "commission": 50,
+          "pledgeCount": 1,
+          "perMonth": 1,
+          "payMethod": "MONTH_PAY",
+          "rent": "650.00",
+          "block": "10幢",
+          "unit": "10单元",
+          "name": "1104室",
+          "area": 145,
+          "newPvCost": true,
+          "houseTitle": "中天·官河锦庭10幢10单元1102室3室3卫-朝南"
+        },
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 73,
+      "success": true,
+      "message": "成功",
+      "data": 1558031
+    },
+    "time": "14:46:18",
+    "duration": 158,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_whole_add.py"
+  },
+  {
+    "name": "test_06_cotenancy_add",
+    "api": "/core/houseAdd/cotenancyAdd",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "POST",
+      "url": "http://8.153.90.53:7663/core/houseAdd/cotenancyAdd",
+      "params": null,
+      "json_data": {
+        "provinceId": 19,
+        "cityId": 561,
+        "cityName": "杭州市",
+        "communityId": 378773,
+        "communityName": "中天·官河锦庭",
+        "block": "11幢",
+        "unit": "11单元",
+        "name": "1103室",
+        "area": 123,
+        "rent": 356,
+        "cameraVoList": [],
+        "newPvCost": true
+      },
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "POST",
+        "url": "http://8.153.90.53:7663/core/houseAdd/cotenancyAdd",
+        "params": null,
+        "json_data": {
+          "provinceId": 19,
+          "cityId": 561,
+          "cityName": "杭州市",
+          "communityId": 378773,
+          "communityName": "中天·官河锦庭",
+          "block": "11幢",
+          "unit": "11单元",
+          "name": "1103室",
+          "area": 123,
+          "rent": 356,
+          "cameraVoList": [],
+          "newPvCost": true
+        },
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 61,
+      "success": true,
+      "message": "成功",
+      "data": 1558032
+    },
+    "time": "14:46:18",
+    "duration": 179,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_cotenancy_add.py"
+  },
+  {
+    "name": "test_07_cotenancy_house_edit",
+    "api": "/core/houseAdd/cotenancyHouseEdit",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "POST",
+      "url": "http://8.153.90.53:7663/core/houseAdd/cotenancyHouseEdit",
+      "params": null,
+      "json_data": {
+        "parentId": 1558024,
+        "house": [
+          {
+            "houseId": 0,
+            "name": "1室",
+            "rent": "333",
+            "houseStatus": {
+              "name": "WAITING_RENT"
+            },
+            "isEdit": true,
+            "add": true,
+            "meterArr": [],
+            "doorLockArr": [],
+            "waterArr": [],
+            "meterAllocationProportion": 1,
+            "waterAllocationProportion": 1,
+            "meterAddForms": [],
+            "waterAddForms": []
+          },
+          {
+            "houseId": 0,
+            "name": "2室",
+            "rent": "444",
+            "houseStatus": {
+              "name": "WAITING_RENT"
+            },
+            "isEdit": true,
+            "add": true,
+            "meterArr": [],
+            "doorLockArr": [],
+            "waterArr": [],
+            "meterAllocationProportion": 1,
+            "waterAllocationProportion": 1,
+            "meterAddForms": [],
+            "waterAddForms": []
+          }
+        ],
+        "kitchenNumber": 1,
+        "livingRoomNumber": 1,
+        "roomNumber": 2,
+        "toiletNumber": 1,
+        "payMethod": "MONTH_PAY",
+        "pledgeCount": 1,
+        "perMonth": 1
+      },
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "POST",
+        "url": "http://8.153.90.53:7663/core/houseAdd/cotenancyHouseEdit",
+        "params": null,
+        "json_data": {
+          "parentId": 1558024,
+          "house": [
+            {
+              "houseId": 0,
+              "name": "1室",
+              "rent": "333",
+              "houseStatus": {
+                "name": "WAITING_RENT"
+              },
+              "isEdit": true,
+              "add": true,
+              "meterArr": [],
+              "doorLockArr": [],
+              "waterArr": [],
+              "meterAllocationProportion": 1,
+              "waterAllocationProportion": 1,
+              "meterAddForms": [],
+              "waterAddForms": []
+            },
+            {
+              "houseId": 0,
+              "name": "2室",
+              "rent": "444",
+              "houseStatus": {
+                "name": "WAITING_RENT"
+              },
+              "isEdit": true,
+              "add": true,
+              "meterArr": [],
+              "doorLockArr": [],
+              "waterArr": [],
+              "meterAllocationProportion": 1,
+              "waterAllocationProportion": 1,
+              "meterAddForms": [],
+              "waterAddForms": []
+            }
+          ],
+          "kitchenNumber": 1,
+          "livingRoomNumber": 1,
+          "roomNumber": 2,
+          "toiletNumber": 1,
+          "payMethod": "MONTH_PAY",
+          "pledgeCount": 1,
+          "perMonth": 1
+        },
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 99,
+      "success": true,
+      "message": "成功"
+    },
+    "time": "14:46:19",
+    "duration": 104,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_cotenancy_house_edit.py"
+  },
+  {
+    "name": "test_08_get_house_index",
+    "api": "/core/app/house/getHouseIndex",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "GET",
+      "url": "http://8.153.90.53:7663/core/app/house/getHouseIndex?id=2749273",
+      "params": {
+        "id": 2749273
+      },
+      "json_data": null,
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "GET",
+        "url": "http://8.153.90.53:7663/core/app/house/getHouseIndex?id=2749273",
+        "params": {
+          "id": 2749273
+        },
+        "json_data": null,
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 330,
+      "success": true,
+      "message": "成功",
+      "data": {
+        "commission": "50",
+        "openRate": false,
+        "rate": "100",
+        "click": false,
+        "cityName": "杭州市",
+        "districtName": "滨江区",
+        "communityName": "中天·官河锦庭",
+        "communityId": 378773,
+        "cityId": 561,
+        "provinceId": 19,
+        "block": "10幢",
+        "videoUrl": "",
+        "unit": "10单元",
+        "name": "1104室",
+        "area": 145.0,
+        "rent": "650.00",
+        "roomNumber": 3,
+        "livingRoomNumber": 3,
+        "kitchenNumber": 3,
+        "toiletNumber": 3,
+        "waterPay": false,
+        "rentType": "WHOLE",
+        "parentId": 0,
+        "houseFeatures": "",
+        "houseStatus": {
+          "message": "未出租",
+          "name": "WAITING_RENT"
+        },
+        "layoutPic": "",
+        "place": "西兴街道中天·官河锦庭",
+        "pledgeCount": 1,
+        "perMonth": 1,
+        "elevator": true,
+        "meterAddForms": [],
+        "waterAddForms": [],
+        "cameraVos": [],
+        "meterCotenancyAddFroms": [],
+        "weterCotenancyAddForms": [],
+        "meterList": [],
+        "waterList": [],
+        "id": 1558031,
+        "userId": 26026,
+        "provinceName": "浙江省",
+        "gmtCreate": "2026-05-25 14:46:20",
+        "gmtEmpty": "2026-05-25 00:00:00",
+        "picList": "",
+        "promotion": false,
+        "departmentId": 509,
+        "onShelf": "DOWN_SHELF",
+        "current": 0,
+        "size": 0,
+        "cameraVoList": [],
+        "payMethod": "MONTH_PAY",
+        "houseTitle": "中天·官河锦庭10幢10单元1102室3室3卫-朝南",
+        "houseModel": "GENERAL_MODEL"
+      }
+    },
+    "time": "14:46:19",
+    "duration": 335,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_get_house_index.py"
+  },
+  {
+    "name": "test_09_get_cotenancy_house_index",
+    "api": "/core/app/house/getCotenancyHouseIndex",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "GET",
+      "url": "http://8.153.90.53:7663/core/app/house/getCotenancyHouseIndex?id=2749274",
+      "params": {
+        "id": 2749274
+      },
+      "json_data": null,
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "GET",
+        "url": "http://8.153.90.53:7663/core/app/house/getCotenancyHouseIndex?id=2749274",
+        "params": {
+          "id": 2749274
+        },
+        "json_data": null,
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 281,
+      "success": true,
+      "message": "成功",
+      "data": {
+        "communityName": "中天·官河锦庭",
+        "openRate": false,
+        "rate": "100",
+        "place": "西兴街道中天·官河锦庭",
+        "cityName": "杭州市",
+        "districtName": "滨江区",
+        "communityId": 378773,
+        "cityId": 561,
+        "provinceId": 19,
+        "provinceName": "浙江省",
+        "block": "11幢",
+        "unit": "11单元",
+        "name": "2室",
+        "userId": 26026,
+        "area": 123.0,
+        "rent": 444.0,
+        "floor": 1,
+        "houseStatus": "WAITING_RENT",
+        "roomNumber": 2,
+        "kitchenNumber": 1,
+        "toiletNumber": 1,
+        "livingRoomNumber": 1,
+        "waterPay": false,
+        "gmtCreate": "2026-05-25 14:46:20",
+        "rentType": "COTENANCY",
+        "parentId": 1558024,
+        "gmtEmpty": "2026-05-25 00:00:00",
+        "waterAllocationProportion": 1.0,
+        "meterAllocationProportion": 1.0,
+        "elevator": true,
+        "promotion": false,
+        "departmentId": 509
+      }
+    },
+    "time": "14:46:19",
+    "duration": 283,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_get_cotenancy_house_index.py"
+  },
+  {
+    "name": "test_10_check_house_index_plus",
+    "api": "/core/checkHouseIndexPlus",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "POST",
+      "url": "http://8.153.90.53:7663/core/checkHouseIndexPlus",
+      "params": null,
+      "json_data": null,
+      "data": {
+        "id": 1557903
+      }
+    },
+    "response": {
+      "_request_info": {
+        "method": "POST",
+        "url": "http://8.153.90.53:7663/core/checkHouseIndexPlus",
+        "params": null,
+        "json_data": null,
+        "data": {
+          "id": 1557903
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 171,
+      "success": true,
+      "message": "成功",
+      "data": {
+        "id": 1557903,
+        "name": "19幢1单元1室",
+        "communityName": "春波小区",
+        "communityId": 195314,
+        "districtName": "滨江区",
+        "area": 66.0,
+        "rent": "300.00",
+        "houseStatus": {
+          "message": "未出租",
+          "name": "WAITING_RENT"
+        },
+        "floor": 1,
+        "totalFloor": 1,
+        "orientation": "朝南",
+        "roomNumber": 3,
+        "kitchenNumber": 3,
+        "toiletNumber": 3,
+        "livingRoomNumber": 3,
+        "renovation": {
+          "message": "简装",
+          "name": "SIMPLE_DECORATION"
+        },
+        "houseFeatures": "包物业,近地铁,有燃气",
+        "properties": "App自动上架测试",
+        "elevator": true,
+        "pics": [
+          "https://sw-video1.oss-cn-hangzhou.aliyuncs.com/zhfd_imgX7VGX0J0qr74bFSVEiugbUBdNveWbVQs.png"
+        ],
+        "sonHouse": [],
+        "houseConfiguration": [],
+        "meterCotenancyAddFroms": [],
+        "weterCotenancyAddForms": [],
+        "cameraVos": [],
+        "onShelf": "DOWN_SHELF",
+        "payMethod": "SEASON_PAY",
+        "houseModel": "GENERAL_MODEL"
+      }
+    },
+    "time": "14:46:19",
+    "duration": 176,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_check_house_index_plus.py"
+  },
+  {
+    "name": "test_11_house_commission_config_save",
+    "api": "/findhouse/houseCommissionCofig/save",
+    "status": "PASSED",
+    "message": "保存成功",
+    "request": {
+      "method": "POST",
+      "url": "http://8.153.90.53:7663/findhouse/houseCommissionCofig/save",
+      "params": null,
+      "json_data": null,
+      "data": {
+        "houseId": 2749273,
+        "houseRent": "320.00",
+        "configs": "[{\"commissionType\": 2, \"commissionValue\": 50, \"startMonth\": 1, \"endMonth\": null}]"
+      }
+    },
+    "response": {
+      "_request_info": {
+        "method": "POST",
+        "url": "http://8.153.90.53:7663/findhouse/houseCommissionCofig/save",
+        "params": null,
+        "json_data": null,
+        "data": {
+          "houseId": 2749273,
+          "houseRent": "320.00",
+          "configs": "[{\"commissionType\": 2, \"commissionValue\": 50, \"startMonth\": 1, \"endMonth\": null}]"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 26,
+      "success": true,
+      "message": "保存成功"
+    },
+    "time": "14:46:19",
+    "duration": 29,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_house_commission_config_save.py"
+  },
+  {
+    "name": "test_12_province_choose",
+    "api": "/core/app/house/provinceChoose",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "GET",
+      "url": "http://8.153.90.53:7663/core/app/house/provinceChoose",
+      "params": null,
+      "json_data": null,
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "GET",
+        "url": "http://8.153.90.53:7663/core/app/house/provinceChoose",
+        "params": null,
+        "json_data": null,
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 13,
+      "success": true,
+      "message": "成功",
+      "data": {
+        "1": "上海市",
+        "2": "云南省",
+        "3": "内蒙古自治区",
+        "4": "北京市",
+        "5": "吉林省",
+        "6": "四川省",
+        "7": "天津市",
+        "8": "宁夏回族自治区",
+        "9": "安徽省",
+        "10": "山东省",
+        "11": "山西省",
+        "12": "广东省",
+        "13": "广西壮族自治区",
+        "14": "新疆维吾尔自治区",
+        "15": "江苏省",
+        "16": "江西省",
+        "17": "河北省",
+        "18": "河南省",
+        "19": "浙江省",
+        "20": "海南省",
+        "21": "湖北省",
+        "22": "湖南省",
+        "23": "甘肃省",
+        "24": "福建省",
+        "25": "西藏",
+        "26": "贵州省",
+        "27": "辽宁省",
+        "28": "重庆市",
+        "29": "陕西省",
+        "30": "青海省",
+        "31": "黑龙江省",
+        "32": "澳门特别行政区"
+      }
+    },
+    "time": "14:46:19",
+    "duration": 16,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_province_choose.py"
+  },
+  {
+    "name": "test_13_city_choose",
+    "api": "/core/app/house/cityChooseA",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "GET",
+      "url": "http://8.153.90.53:7663/core/app/house/cityChooseA?id=19",
+      "params": {
+        "id": 19
+      },
+      "json_data": null,
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "GET",
+        "url": "http://8.153.90.53:7663/core/app/house/cityChooseA?id=19",
+        "params": {
+          "id": 19
+        },
+        "json_data": null,
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 13,
+      "success": true,
+      "message": "成功",
+      "data": {
+        "560": "宁波市",
+        "561": "杭州市",
+        "562": "温州市",
+        "563": "湖州市",
+        "564": "绍兴市",
+        "565": "舟山市",
+        "566": "衢州市",
+        "567": "金华市",
+        "557": "丽水市",
+        "558": "台州市",
+        "559": "嘉兴市"
+      }
+    },
+    "time": "14:46:19",
+    "duration": 16,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_city_choose.py"
+  },
+  {
+    "name": "test_16_show_landlord_community",
+    "api": "/core/app/houseManageExt/showLandLordCommunity",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "GET",
+      "url": "http://8.153.90.53:7663/core/app/houseManageExt/showLandLordCommunity?current=1&size=10000&cityName=%E5%A5%89%E8%B4%A4%E5%8C%BA&provinceId=1&provinceName=%E4%B8%8A%E6%B5%B7%E5%B8%82",
+      "params": {
+        "current": 1,
+        "size": 10000,
+        "cityName": "奉贤区",
+        "provinceId": 1,
+        "provinceName": "上海市"
+      },
+      "json_data": null,
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "GET",
+        "url": "http://8.153.90.53:7663/core/app/houseManageExt/showLandLordCommunity?current=1&size=10000&cityName=%E5%A5%89%E8%B4%A4%E5%8C%BA&provinceId=1&provinceName=%E4%B8%8A%E6%B5%B7%E5%B8%82",
+        "params": {
+          "current": 1,
+          "size": 10000,
+          "cityName": "奉贤区",
+          "provinceId": 1,
+          "provinceName": "上海市"
+        },
+        "json_data": null,
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 33,
+      "success": true,
+      "message": "成功",
+      "data": {
+        "total": 1,
+        "size": 10000,
+        "pages": 1,
+        "current": 1,
+        "records": [
+          {
+            "communityName": "海滨新二村",
+            "communityId": 2545,
+            "sonNum": 0,
+            "communityNum": 0,
+            "place": "奉贤-海湾-海滨新二村"
+          }
+        ]
+      }
+    },
+    "time": "14:46:19",
+    "duration": 36,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_show_landlord_community.py"
+  },
+  {
+    "name": "test_17_get_community",
+    "api": "/core/app/house/getCommunity",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "GET",
+      "url": "http://8.153.90.53:7663/core/app/house/getCommunity?name=%E6%96%B0&cityId=6758",
+      "params": {
+        "name": "新",
+        "cityId": 6758
+      },
+      "json_data": null,
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "GET",
+        "url": "http://8.153.90.53:7663/core/app/house/getCommunity?name=%E6%96%B0&cityId=6758",
+        "params": {
+          "name": "新",
+          "cityId": 6758
+        },
+        "json_data": null,
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 19,
+      "success": true,
+      "message": "成功",
+      "data": {
+        "3809": {
+          "新寺中街81弄小区": "奉贤-柘林-新寺中街81弄"
+        },
+        "352036": {
+          "新建中路644弄小区": "奉贤-南桥-新建中路644弄"
+        },
+        "11717": {
+          "新柘中路26弄小区": "奉贤-柘林-新柘中路26弄"
+        },
+        "3815": {
+          "新北路43弄小区": "奉贤-柘林-新北路43弄"
+        },
+        "353677": {
+          "新强村村委会": "金汇镇大叶公路"
+        },
+        "353198": {
+          "新建西路101弄小区": "奉贤-南桥-新建西路101弄"
+        },
+        "281642": {
+          "新南家园": "-西渡-西闸公路1118弄"
+        },
+        "353195": {
+          "新建中路540弄小区": "奉贤-南桥-新建中路540弄"
+        },
+        "353066": {
+          "新院村": "奉贤-海湾-奉炮公路432弄"
+        },
+        "23697": {
+          "新建西路121-221号小区": "奉贤-南桥-新建西路121-221号"
+        },
+        "353172": {
+          "新华中心村": "奉贤-庄行-腾行路"
+        },
+        "351479": {
+          "新泰馨苑": "奉贤-南桥-新建西路139弄"
+        },
+        "353041": {
+          "新民旺苑": "奉贤-南桥-运河北路1098弄"
+        },
+        "353201": {
+          "新建中路470弄小区": "奉贤-南桥-新建中路470弄"
+        },
+        "353200": {
+          "新建西路172号小区": "奉贤-南桥-新建西路172号"
+        },
+        "353202": {
+          "新建中路558弄小区": "奉贤-南桥-新建中路558弄"
+        },
+        "3672": {
+          "新北路96弄小区": "奉贤-柘林-新北路96弄"
+        },
+        "352541": {
+          "新城花屿湾": "奉贤-奉城-兰博路1455弄"
+        },
+        "3929": {
+          "新奉公路4621弄小区": "奉贤-四团-新奉公路"
+        },
+        "350745": {
+          "新建中路50号小区": "奉贤-南桥-新建中路50号"
+        },
+        "353080": {
+          "新建西路129号小区": "奉贤-南桥-新建西路129号"
+        },
+        "350074": {
+          "新发展公寓": "奉贤-南桥-环城东路2188弄"
+        }
+      }
+    },
+    "time": "14:46:19",
+    "duration": 22,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_get_community.py"
+  },
+  {
+    "name": "test_18_select_device_price",
+    "api": "/core/manual/selectDevicePriceHandle",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "GET",
+      "url": "http://8.153.90.53:7663/core/manual/selectDevicePriceHandle?type=1",
+      "params": {
+        "type": 1
+      },
+      "json_data": null,
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "GET",
+        "url": "http://8.153.90.53:7663/core/manual/selectDevicePriceHandle?type=1",
+        "params": {
+          "type": 1
+        },
+        "json_data": null,
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 17,
+      "success": true,
+      "message": "成功",
+      "data": {
+        "id": 39,
+        "all": true,
+        "meterPrice": "2.000",
+        "billType": 2,
+        "userId": 26026,
+        "createTime": "2021-10-20 10:40:03",
+        "updateTime": "2026-04-24 15:45:12",
+        "meter": true,
+        "coldWater": true,
+        "water": true,
+        "coal": false,
+        "meterPriceType": false,
+        "ladderPrice": "[{\"level\":\"1\",\"price\":\"1\",\"start\":\"\",\"end\":\"2\"},{\"level\":\"2\",\"price\":\"1.2\",\"start\":\"2\",\"end\":\"3\"},{\"level\":\"3\",\"price\":\"1.3\",\"start\":\"3\"}]"
+      }
+    },
+    "time": "14:46:20",
+    "duration": 20,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_select_device_price.py"
+  },
+  {
+    "name": "test_19_template_choose",
+    "api": "/core/web/template/choose",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "GET",
+      "url": "http://8.153.90.53:7663/core/web/template/choose",
+      "params": null,
+      "json_data": null,
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "GET",
+        "url": "http://8.153.90.53:7663/core/web/template/choose",
+        "params": null,
+        "json_data": null,
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 16,
+      "success": true,
+      "message": "成功",
+      "data": [
+        {
+          "id": 264,
+          "name": "20260303复制模板",
+          "area": 50.0,
+          "rent": "500",
+          "roomDetail": "1室1厅1厨1卫"
+        },
+        {
+          "id": 266,
+          "name": "20260303PC副本",
+          "area": 55.0,
+          "rent": "500",
+          "roomDetail": "1室1厅1厨1卫"
+        },
+        {
+          "id": 270,
+          "name": "阶梯佣金模板新增",
+          "area": 144.0,
+          "rent": "400",
+          "roomDetail": "3室2厅1厨1卫"
+        },
+        {
+          "id": 272,
+          "name": "0319独栋模版",
+          "area": 144.0,
+          "rent": "300",
+          "roomDetail": "2室2厅3厨4卫"
+        },
+        {
+          "id": 274,
+          "name": "20260325无图片模版",
+          "area": 222.0,
+          "rent": "380",
+          "roomDetail": "2室2厅2厨2卫"
+        },
+        {
+          "id": 275,
+          "name": "20260325低价格模板",
+          "area": 147.0,
+          "rent": "299",
+          "roomDetail": "0室0厅0厨0卫"
+        },
+        {
+          "id": 276,
+          "name": "无图低价模版",
+          "area": 147.0,
+          "rent": "288",
+          "roomDetail": "3室2厅2厨2卫"
+        },
+        {
+          "id": 283,
+          "name": "0319独栋模版-副本",
+          "area": 144.0,
+          "rent": "300",
+          "roomDetail": "2室2厅3厨4卫"
+        }
+      ]
+    },
+    "time": "14:46:20",
+    "duration": 20,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_template_choose.py"
+  },
+  {
+    "name": "test_20_add_more",
+    "api": "/core/web/apartment/addMore",
+    "status": "PASSED",
+    "message": "成功",
+    "request": {
+      "method": "POST",
+      "url": "http://8.153.90.53:7663/core/web/apartment/addMore",
+      "params": null,
+      "json_data": {
+        "provinceId": "1",
+        "provinceName": "上海市",
+        "cityId": "6758",
+        "cityName": "奉贤区",
+        "communityId": "3672",
+        "communityName": "新北路96弄小区",
+        "block": "1幢",
+        "unit": "1单元",
+        "elevator": true,
+        "totalFloor": 3,
+        "managementList": [
+          {
+            "floor": 1,
+            "select": true,
+            "edit": false,
+            "num": 4,
+            "sum": [
+              {
+                "value": 1,
+                "label": false
+              },
+              {
+                "value": 2,
+                "label": false
+              },
+              {
+                "value": 3,
+                "label": false
+              },
+              {
+                "value": 4,
+                "label": false
+              }
+            ],
+            "list": [
+              {
+                "name": "A1001",
+                "templateId": 10388,
+                "templateName": "佣金30模版-副本"
+              },
+              {
+                "name": "A1002",
+                "templateId": 10388,
+                "templateName": "佣金30模版-副本"
+              },
+              {
+                "name": "A1003",
+                "templateId": 10388,
+                "templateName": "佣金30模版-副本"
+              },
+              {
+                "name": "A1004",
+                "templateId": 10388,
+                "templateName": "佣金30模版-副本"
+              }
+            ]
+          }
+        ]
+      },
+      "data": null
+    },
+    "response": {
+      "_request_info": {
+        "method": "POST",
+        "url": "http://8.153.90.53:7663/core/web/apartment/addMore",
+        "params": null,
+        "json_data": {
+          "provinceId": "1",
+          "provinceName": "上海市",
+          "cityId": "6758",
+          "cityName": "奉贤区",
+          "communityId": "3672",
+          "communityName": "新北路96弄小区",
+          "block": "1幢",
+          "unit": "1单元",
+          "elevator": true,
+          "totalFloor": 3,
+          "managementList": [
+            {
+              "floor": 1,
+              "select": true,
+              "edit": false,
+              "num": 4,
+              "sum": [
+                {
+                  "value": 1,
+                  "label": false
+                },
+                {
+                  "value": 2,
+                  "label": false
+                },
+                {
+                  "value": 3,
+                  "label": false
+                },
+                {
+                  "value": 4,
+                  "label": false
+                }
+              ],
+              "list": [
+                {
+                  "name": "A1001",
+                  "templateId": 10388,
+                  "templateName": "佣金30模版-副本"
+                },
+                {
+                  "name": "A1002",
+                  "templateId": 10388,
+                  "templateName": "佣金30模版-副本"
+                },
+                {
+                  "name": "A1003",
+                  "templateId": 10388,
+                  "templateName": "佣金30模版-副本"
+                },
+                {
+                  "name": "A1004",
+                  "templateId": 10388,
+                  "templateName": "佣金30模版-副本"
+                }
+              ]
+            }
+          ]
+        },
+        "data": null,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 13; V2219A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.74 Mobile Safari/537.36",
+          "Host": "8.153.90.53:7663",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "application/json",
+          "Language": "zh-CN",
+          "Time-Zone": "Asia/Shanghai"
+        }
+      },
+      "_http_status": 200,
+      "_elapsed_ms": 35,
+      "success": true,
+      "message": "成功"
+    },
+    "time": "14:46:20",
+    "duration": 37,
+    "test_class": null,
+    "group": "fy",
+    "source_file": "zhihuifangdong_fy/test_add_more.py"
+  }
+]

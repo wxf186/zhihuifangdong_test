@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>智慧房东 APP 接口测试报告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#f0f2f5;color:#333;min-height:100vh}
+
+/* ---- 顶部标题栏 ---- */
+.header{
+  background:linear-gradient(135deg,#1a2538,#2a3f5f);
+  color:#fff;
+  padding:32px 40px;
+  text-align:center;
+}
+.header-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.header-title{font-size:22px;font-weight:700;margin-bottom:4px}
+.header-sub{font-size:13px;opacity:0.7}
+.header-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  font-size:13px;
+  opacity:0.85;
+  margin-top:6px;
+  justify-content:center;
+}
+
+/* ---- 统计数据条 ---- */
+.stats-bar{
+  background:#fff;
+  border-radius:12px;
+  padding:20px 28px;
+  display:flex;
+  gap:0;
+  margin:-20px 40px 0;
+  position:relative;
+  top:-12px;
+  box-shadow:0 4px 16px rgba(0,0,0,.08);
+  border:1px solid #f0f0f0;
+}
+.stat-item{
+  flex:1;
+  text-align:center;
+  padding:0 16px;
+}
+.stat-item:not(:last-child){
+  border-right:1px solid #e8e8e8;
+}
+.stat-num{font-size:30px;font-weight:700}
+.stat-lbl{font-size:12px;color:#888;margin-top:2px}
+.stat-num.green{color:#10B981}
+.stat-num.red{color:#EF4444}
+.stat-num.blue{color:#3B82F6}
+
+/* ---- 导航 ---- */
+.nav{
+  display:flex;
+  gap:6px;
+  padding:12px 40px;
+  background:#fff;
+  border-bottom:1px solid #e8e8e8;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.nav button{
+  padding:8px 18px;
+  border:1px solid #d0d0d0;
+  background:#fff;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:13px;
+  transition:all .2s;
+  color:#555;
+}
+.nav button:hover{border-color:#3B82F6;color:#3B82F6}
+.nav button.active{background:#2a3f5f;color:#fff;border-color:#2a3f5f}
+
+/* ---- 内容区 ---- */
+.content{padding:20px 40px 40px;max-width:1400px;margin:0 auto}
+
+/* ---- 失败卡片区 ---- */
+.section-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:20px 0 14px;
+}
+.section-header h2{font-size:17px;font-weight:700}
+.section-header .badge{
+  font-size:12px;
+  padding:2px 10px;
+  border-radius:20px;
+  font-weight:600;
+}
+.badge-red{background:#FEE2E2;color:#991B1B}
+.badge-green{background:#D1FAE5;color:#065F46}
+.badge-gray{background:#F3F4F6;color:#666}
+
+.group-block{margin-bottom:20px}
+.group-label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px;
+  background:#f8fafc;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+.group-label-icon{font-size:16px}
+.group-label-name{font-weight:600;font-size:14px;color:#333}
+.group-label-count{margin-left:auto;font-size:12px;color:#888}
+
+.empty-tip{text-align:center;padding:40px;color:#aaa;font-size:14px}
+
+/* ---- 卡片网格 ---- */
+.test-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:12px;
+}
+.test-card{
+  background:#fff;
+  border-radius:12px;
+  padding:14px 16px;
+  cursor:pointer;
+  transition:all .2s;
+  border:2px solid transparent;
+  box-shadow:0 1px 6px rgba(0,0,0,.05);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.test-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.test-card.pass{border-left:4px solid #10B981}
+.test-card.fail{border-left:4px solid #EF4444}
+
+.card-top{display:flex;align-items:center;gap:8px}
+.card-icon{font-size:18px}
+.card-name{flex:1;font-size:14px;font-weight:600;color:#222}
+.card-status{
+  font-size:11px;
+  padding:2px 8px;
+  border-radius:10px;
+  font-weight:600;
+  background:#f0f0f0;color:#666;
+}
+.pass .card-status{background:#d1fae5;color:#065f46}
+.fail .card-status{background:#fee2e2;color:#991b1b}
+
+.card-bottom{display:flex;align-items:center;gap:8px;font-size:12px}
+.card-group{color:#888;white-space:nowrap}
+.card-msg{color:#999;flex:1;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ---- 列表 ---- */
+.table-wrap{
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  margin-top:16px;
+}
+.results-table{width:100%;border-collapse:collapse}
+.results-table th{
+  background:#f5f7fa;
+  text-align:left;
+  padding:11px 14px;
+  font-size:13px;
+  color:#666;
+  font-weight:600;
+  border-bottom:1px solid #e8e8e8;
+}
+.results-table td{
+  padding:10px 14px;
+  border-bottom:1px solid #f5f5f5;
+  font-size:13px;
+}
+.results-table tr:last-child td{border-bottom:none}
+.results-table tr{cursor:pointer;transition:background .15s}
+.results-table tbody tr:hover{background:#f8faff}
+.results-table .pass td{background:#fafffe}
+.results-table .fail td{background:#fffafa}
+.results-table .msg-cell{max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#666}
+
+/* ---- Modal ---- */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  padding:20px;
+}
+.modal.hidden{display:none}
+.modal-content{
+  background:#fff;
+  border-radius:16px;
+  width:100%;
+  max-width:700px;
+  max-height:88vh;
+  overflow-y:auto;
+  box-shadow:0 24px 64px rgba(0,0,0,.35);
+}
+.modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 24px;
+  border-bottom:1px solid #f0f0f0;
+  position:sticky;
+  top:0;
+  background:#fff;
+  border-radius:16px 16px 0 0;
+}
+.modal-header h3{font-size:17px;font-weight:700}
+.close-btn{
+  width:32px;height:32px;
+  border-radius:50%;
+  border:none;
+  background:#f0f0f0;
+  font-size:20px;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:#666;
+}
+.close-btn:hover{background:#e0e0e0}
+.export-md-btn{
+  padding:6px 14px;
+  border-radius:8px;
+  border:none;
+  background:#3b82f6;
+  color:#fff;
+  font-size:13px;
+  cursor:pointer;
+  margin-right:8px;
+}
+.export-md-btn:hover{background:#2563eb}
+.modal-body{padding:20px 24px}
+.detail-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tag{padding:4px 10px;border-radius:6px;font-size:12px;font-weight:600}
+.tc-tag{background:#e8f0ff;color:#2a5fc0}
+.grp-tag{background:#e8f8f0;color:#0f7a45}
+.status-tag.pass{background:#d1fae5;color:#065f46}
+.status-tag.fail{background:#fee2e2;color:#991b1b}
+.detail-row{padding:6px 0;font-size:14px;color:#444}
+.detail-row strong{color:#222;width:56px;display:inline-block}
+.detail-section{margin-top:14px}
+.detail-label{font-size:13px;font-weight:600;color:#555;margin-bottom:6px}
+.detail-pre{
+  background:#f8f9fa;
+  border:1px solid #e8e8e8;
+  border-radius:8px;
+  padding:10px 12px;
+  font-size:12px;
+  line-height:1.6;
+  white-space:pre-wrap;
+  word-break:break-all;
+  max-height:200px;
+  overflow-y:auto;
+  color:#333;
+}
+
+.footer{text-align:center;padding:24px;color:#bbb;font-size:12px}
+
+@media(max-width:768px){
+  .header{padding:20px}
+  .header-top{flex-direction:column}
+  .stats-bar{margin:-12px 20px 0;gap:0;flex-wrap:wrap}
+  .stat-item{min-width:50%}
+  .content{padding:16px}
+  .nav{padding:12px 16px}
+  .test-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部标题 -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="header-title">📊 智慧房东 APP 接口测试报告</div>
+      <div class="header-sub">智慧房东 APP</div>
+      <div class="header-meta">
+        <span>⏱ 开始: -</span>
+        <span>⏱ 结束: -</span>
+        <span>⏳ 耗时: -</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 数据统计条 -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num blue">1</div>
+    <div class="stat-lbl">用例总数</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num green">1</div>
+    <div class="stat-lbl">通过</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num red">0</div>
+    <div class="stat-lbl">失败</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num blue">100.0%</div>
+    <div class="stat-lbl">通过率</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num" style="color:#666">-</div>
+    <div class="stat-lbl">执行耗时</div>
+  </div>
+</div>
+
+<!-- 导航 -->
+<div class="nav">
+  <button class="active" onclick="switchView('fail')">❌ 失败用例</button>
+  <button onclick="switchView('pass')">✅ 通过用例</button>
+  <button onclick="switchView('table')">📋 用例列表</button>
+</div>
+
+<!-- 内容 -->
+<div class="content">
+
+  <!-- 失败用例卡片 -->
+  <div id="view-fail" class="view-section">
+    <div class="section-header">
+      <h2>❌ 失败用例</h2>
+      <span class="badge badge-red">0 个</span>
+    </div>
+    <p class="empty-tip">🎉 全部通过，无失败用例</p>
+  </div>
+
+  <!-- 通过用例卡片 -->
+  <div id="view-pass" class="view-section" style="display:none">
+    <div class="section-header">
+      <h2>✅ 通过用例</h2>
+      <span class="badge badge-green">1 个</span>
+    </div>
+    <div class="group-block">  <div class="group-label" style="border-left:3px solid #10B981">    <span class="group-label-icon">🏢</span>    <span class="group-label-name">zhihuifangdong_fy</span>    <span class="group-label-count">1个</span>  </div>  <div class="test-grid"><div class="test-card pass" id="card-1" onclick="showDetail(1)">
+  <div class="card-top">
+    <span class="card-icon">✅</span>
+    <span class="card-name">整租新增</span>
+    <span class="card-status">PASSED</span>
+  </div>
+  <div class="card-bottom">
+    <span class="card-group">fy/test_whole_add.py</span>
+    <span class="card-msg">成功</span>
+  </div>
+</div>  </div></div>
+  </div>
+
+  <!-- 用例列表 -->
+  <div id="view-table" class="view-section" style="display:none">
+    <div class="section-header">
+      <h2>📋 用例列表</h2>
+      <span class="badge badge-gray">1 个</span>
+    </div>
+    <div class="table-wrap">
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>状态</th>
+            <th>用例名称</th>
+            <th>来源</th>
+            <th>接口</th>
+            <th>耗时</th>
+            <th>响应内容</th>
+            <th>信息</th>
+          </tr>
+        </thead>
+        <tbody><tr class="pass" onclick="showDetail(1)">
+  <td>1</td>
+  <td>✅</td>
+  <td>整租新增</td>
+  <td>fy/test_whole_add.py</td>
+  <td>/core/houseAdd/wholeAdd</td>
+  <td>79ms</td>
+  <td class="msg-cell" title="{"success": true, "message": "成功", "data": 1558030}">{"success": true, "message": "成功", "data": 1558030}</td>
+  <td class="msg-cell" title="成功">成功</td>
+</tr></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- 隐藏的 modal -->
+<div id="detail-1" class="modal hidden">
+  <div class="modal-content pass">
+    <div class="modal-header">
+      <h3>✅ 整租新增</h3>
+      <button class="close-btn" onclick="closeDetail(1)">×</button>
+      <button class="export-md-btn" onclick="exportMd(1)">📥 导出MD</button>
+    </div>
+    <div class="modal-body">
+      <div class="detail-tags">
+        <span class="tag grp-tag">fy/test_whole_add.py</span>
+        <span class="tag status-tag pass">PASSED</span>
+      </div>
+      <div class="detail-row"><strong>用例名称:</strong> <span>整租新增</span></div>
+      <div class="detail-row"><strong>接口:</strong> <span>/core/houseAdd/wholeAdd</span></div>
+      <div class="detail-row"><strong>状态码:</strong> <span>200</span></div>
+      <div class="detail-row"><strong>耗时:</strong> <span>79ms</span></div>
+      <div class="detail-section">
+        <div class="detail-label">📌 公共参数（请求头/URL）</div>
+        <pre class="detail-pre">{
+  "method": "POST",
+  "url": "http://8.153.90.53:7663/core/houseAdd/wholeAdd",
+  "headers": null
+}</pre>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">📎 接口数据（参数/Body）</div>
+        <pre class="detail-pre">{
+  "params": null,
+  "json_data": {
+    "provinceId": 19,
+    "cityId": 561,
+    "cityName": "杭州市",
+    "communityId": 378773,
+    "communityName": "中天·官河锦庭",
+    "kitchenNumber": 3,
+    "livingRoomNumber": 3,
+    "roomNumber": 3,
+    "toiletNumber": 3,
+    "commission": 50,
+    "pledgeCount": 1,
+    "perMonth": 1,
+    "payMethod": "MONTH_PAY",
+    "rent": "650.00",
+    "block": "10幢",
+    "unit": "10单元",
+    "name": "1103室",
+    "area": 145,
+    "newPvCost": true,
+    "houseTitle": "中天·官河锦庭10幢10单元1102室3室3卫-朝南"
+  },
+  "data": null
+}</pre>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">响应信息</div>
+        <pre class="detail-pre">{
+  "success": true,
+  "message": "成功",
+  "data": 1558030
+}</pre>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">结果信息</div>
+        <pre class="detail-pre">成功</pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  生成时间: 2026-05-25 14:43:31 | 智慧房东 APP 接口测试
+</div>
+
+<script>
+function switchView(view) {
+  document.getElementById('view-fail').style.display  = view === 'fail'  ? 'block' : 'none';
+  document.getElementById('view-pass').style.display  = view === 'pass'  ? 'block' : 'none';
+  document.getElementById('view-table').style.display = view === 'table' ? 'block' : 'none';
+  document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showDetail(seq) {
+  document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+  const modal = document.getElementById('detail-' + seq);
+  if (modal) modal.classList.remove('hidden');
+}
+
+function closeDetail(seq) {
+  const modal = document.getElementById('detail-' + seq);
+  if (modal) modal.classList.add('hidden');
+}
+</script>
+<script src="export_md.js"></script>
+<script>document.addEventListener('keydown', function(e){if(e.key==='Escape'){document.querySelectorAll('.modal').forEach(function(m){m.classList.add('hidden')})}});</script>
+</body>
+
+</html>
